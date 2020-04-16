@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 赵二满</title>
+  <title>SSH远程连接命令 | 赵二满</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="赵二满">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="SSH常见使用，上传下载文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSH远程连接命令">
+<meta property="og:url" content="http://yoursite.com/2020/04/16/SSH%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="赵二满">
+<meta property="og:description" content="SSH常见使用，上传下载文件">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-16T03:21:17.000Z">
+<meta property="article:modified_time" content="2020-04-16T04:29:12.709Z">
 <meta property="article:author" content="赵二满">
 <meta property="article:tag" content="赵二满">
 <meta name="twitter:card" content="summary">
@@ -159,138 +163,220 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-SSH远程连接命令" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      SSH远程连接命令
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+
+        
+        
+	<!-- 不蒜子统计 -->
+	<span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
 
 <a href="/2020/04/16/SSH%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%91%BD%E4%BB%A4/" class="archive-article-date">
   	<time datetime="2020-04-16T03:21:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-16</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/16/SSH%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%91%BD%E4%BB%A4/">SSH远程连接命令</a>
-    </h1>
-  
+        
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">417字</span>
+      </span>
+    </span>
 
-        <div class="article-info info-on-right">
-          
-          
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
 
+          
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="SSH常见使用，上传下载文件"><a href="#SSH常见使用，上传下载文件" class="headerlink" title="SSH常见使用，上传下载文件"></a>SSH常见使用，上传下载文件</h1><a id="more"></a>
+<h2 id="SSH服务安装"><a href="#SSH服务安装" class="headerlink" title="SSH服务安装"></a>SSH服务安装</h2><p>安装 SSH(Secure Shell) 服务以提供远程管理服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ssh</span><br></pre></td></tr></table></figure>
+<p>SSH 远程登入 Ubuntu 机</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ssh username@192.168.0.1</span><br></pre></td></tr></table></figure>
+<h2 id="使用SSH从服务器下载或上传文件"><a href="#使用SSH从服务器下载或上传文件" class="headerlink" title="使用SSH从服务器下载或上传文件"></a>使用SSH从服务器下载或上传文件</h2><p>利用scp传输文件,实现从远程服务器下载文件或上传文件到服务器上,本地使用unix(linux/mac)命令行完成操作。</p>
+<p><strong>从远程服务器下载文件到本地</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp &lt;用户名&gt;@&lt;ssh服务器地址&gt;:&lt;文件&gt; &lt;本地文件路径&gt;</span><br><span class="line">scp test2@10.201.147.94:&#x2F;home&#x2F;test2&#x2F;zhaoman&#x2F;XXX.json &#x2F;Users&#x2F;zhaoman</span><br></pre></td></tr></table></figure>
+
+<p><strong>下载文件夹到本机</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp -r &lt;用户名&gt;@&lt;ssh服务器地址&gt;:&lt;文件夹名&gt; &lt;本地路径&gt;</span><br><span class="line">scp -r test2@10.201.147.94:&#x2F;home&#x2F;test2&#x2F;zhaoman&#x2F;QB_lcquad2&#x2F; &#x2F;Users&#x2F;zhaoman</span><br></pre></td></tr></table></figure>
+
+<p><strong>从本地上传到服务器</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp &lt;本地文件名&gt; &lt;用户名&gt;@&lt;ssh服务器地址&gt;:&lt;上传保存路径&gt; </span><br><span class="line">scp  -r &lt;本地文件夹名&gt; &lt;用户名&gt;@&lt;ssh服务器地址&gt;:&lt;上传保存路径&gt;</span><br></pre></td></tr></table></figure>
+
+<p>scp提供了几个选项  在scp后加就行了<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-p 拷贝文件的时候保留源文件建立的时间。 </span><br><span class="line">-q 执行文件拷贝时，不显示任何提示消息。 </span><br><span class="line">-r 拷贝整个目录 </span><br><span class="line">-v 拷贝文件时，显示提示信息。</span><br></pre></td></tr></table></figure></p>
+<p>linux 下scp传文件时错误 scp: /usr/tools: not a regular file 不能成功传送 解决方案:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1：有可能没权限 chmod 777</span><br><span class="line">2:  在使用scp时加上-r 参数 scp -r root@192.168.16.5:&#x2F;usr&#x2F;tools&#x2F;xxxx</span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/16/SSH%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%91%BD%E4%BB%A4/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
 
-<a href="/2020/04/15/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E5%88%9D%E6%8E%A2/" class="archive-article-date">
-  	<time datetime="2020-04-15T14:18:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
-</a>
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/15/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E5%88%9D%E6%8E%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">敏捷开发初探</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/15/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E5%88%9D%E6%8E%A2/">敏捷开发初探</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SSH常见使用，上传下载文件"><span class="toc-number">1.</span> <span class="toc-text">SSH常见使用，上传下载文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SSH服务安装"><span class="toc-number">1.1.</span> <span class="toc-text">SSH服务安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用SSH从服务器下载或上传文件"><span class="toc-number">1.2.</span> <span class="toc-text">使用SSH从服务器下载或上传文件</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+        
+    </div>
+</aside>
 
-<a href="/2020/04/15/%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BAwordpress%E5%8A%A8%E6%80%81%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2020-04-15T09:47:48.429Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
-</a>
-        </div>
-    	 
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/15/%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BAwordpress%E5%8A%A8%E6%80%81%E5%8D%9A%E5%AE%A2/">基于docker搭建wordpress动态博客</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-
-<a href="/2020/04/14/%E5%88%A9%E7%94%A8hexo%E8%BF%9B%E8%A1%8C%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2020-04-14T12:33:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/14/%E5%88%A9%E7%94%A8hexo%E8%BF%9B%E8%A1%8C%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">利用hexo进行个人博客搭建</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -325,8 +411,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

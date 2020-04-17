@@ -6,23 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Java注解学习 | 赵二满</title>
+  <title>答应我，别再if:else走天下 | 赵二满</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="面向注解编程成了日常操作！">
+  <meta name="description" content="引自https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;ufRf8DQQRYQI0q2VxG3hQg">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java注解学习">
-<meta property="og:url" content="http://yoursite.com/2020/04/16/Java%E6%B3%A8%E8%A7%A3%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:title" content="答应我，别再if:else走天下">
+<meta property="og:url" content="http://yoursite.com/2020/04/17/%E7%AD%94%E5%BA%94%E6%88%91%EF%BC%8C%E5%88%AB%E5%86%8Dif:else%E8%B5%B0%E5%A4%A9%E4%B8%8B/index.html">
 <meta property="og:site_name" content="赵二满">
-<meta property="og:description" content="面向注解编程成了日常操作！">
+<meta property="og:description" content="引自https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;ufRf8DQQRYQI0q2VxG3hQg">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/images/Java%E6%B3%A8%E8%A7%A3%E5%AD%A6%E4%B9%A0-1.png">
-<meta property="og:image" content="http://yoursite.com/images/Java%E6%B3%A8%E8%A7%A3%E5%AD%A6%E4%B9%A0-2.png">
-<meta property="article:published_time" content="2020-04-16T14:43:24.000Z">
-<meta property="article:modified_time" content="2020-04-17T12:58:44.976Z">
+<meta property="article:published_time" content="2020-04-17T13:51:51.111Z">
+<meta property="article:modified_time" content="2020-04-17T13:52:47.208Z">
 <meta property="article:author" content="赵二满">
 <meta property="article:tag" content="赵二满">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/images/Java%E6%B3%A8%E8%A7%A3%E5%AD%A6%E4%B9%A0-1.png">
   
     <link rel="alternative" href="/atom.xml" title="赵二满" type="application/atom+xml">
   
@@ -166,14 +163,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java注解学习" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-答应我，别再if:else走天下" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Java注解学习
+      答应我，别再if:else走天下
     </h1>
   
 
@@ -185,8 +182,8 @@
 	</span>
 
 
-<a href="/2020/04/16/Java%E6%B3%A8%E8%A7%A3%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2020-04-16T14:43:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-16</time>
+<a href="/2020/04/17/%E7%AD%94%E5%BA%94%E6%88%91%EF%BC%8C%E5%88%AB%E5%86%8Dif:else%E8%B5%B0%E5%A4%A9%E4%B8%8B/" class="archive-article-date">
+  	<time datetime="2020-04-17T13:51:51.111Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-17</time>
 </a>
         
         
@@ -195,7 +192,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">216字</span>
+        <span class="post-count">9字</span>
       </span>
     </span>
 
@@ -216,18 +213,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>面向注解编程成了日常操作！</p>
-<a id="more"></a>
-
-
-<h2><span id="注解的基本原理">注解的基本原理</span></h2><p>详细请转：引自<br><a href="https://mp.weixin.qq.com/s/gdYysBB3aD_HmPyvEThFXw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/gdYysBB3aD_HmPyvEThFXw</a></p>
-<p>注解用来做标注用：可以在类、字段变量、方法、接口等位置进行一个特殊的标记，为后续做一些诸如：代码生成、数据校验、资源整合等工作做铺垫。</p>
-<p>对嘛，就做标记用的嘛！</p>
-<p>注解一旦对代码标注完成，后续我们就可以结合Java强大的反射机制，在运行时动态地获取到注解的标注信息，从而可以执行很多其他逻辑，完成我们想要的自动化工作。</p>
-<p>比如，在没有注解加持时，我们想要校验 <code>Student</code>  类：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class Student</span><br><span class="line">&#123;</span><br><span class="line">    private Long id;  &#x2F;&#x2F; 学号</span><br><span class="line">    private String name; &#x2F;&#x2F; 姓名</span><br><span class="line">    private String mobile; &#x2F;&#x2F; 手机号码(11位)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/Java%E6%B3%A8%E8%A7%A3%E5%AD%A6%E4%B9%A0-1.png" alt><br><img src="/images/Java%E6%B3%A8%E8%A7%A3%E5%AD%A6%E4%B9%A0-2.png" alt></p>
+        <p>引自<a href="https://mp.weixin.qq.com/s/ufRf8DQQRYQI0q2VxG3hQg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/ufRf8DQQRYQI0q2VxG3hQg</a></p>
 
       
 
@@ -312,7 +298,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/16/Java%E6%B3%A8%E8%A7%A3%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/17/%E7%AD%94%E5%BA%94%E6%88%91%EF%BC%8C%E5%88%AB%E5%86%8Dif:else%E8%B5%B0%E5%A4%A9%E4%B8%8B/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -326,18 +312,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/04/17/%E7%AD%94%E5%BA%94%E6%88%91%EF%BC%8C%E5%88%AB%E5%86%8Dif:else%E8%B5%B0%E5%A4%A9%E4%B8%8B/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          答应我，别再if:else走天下
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/16/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">前端学习路线</div>
+    <a href="/2020/04/16/Java%E6%B3%A8%E8%A7%A3%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java注解学习</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -364,7 +341,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text">注解的基本原理</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>

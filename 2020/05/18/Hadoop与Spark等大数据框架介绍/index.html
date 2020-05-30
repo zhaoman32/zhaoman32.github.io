@@ -15,20 +15,20 @@
 <meta property="og:site_name" content="赵二满">
 <meta property="og:description" content="Hadoop与Spark等大数据框架介绍">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://img-blog.csdn.net/20180808170921431?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h5NTkyMDcwNjE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="https://img-blog.csdn.net/20180809103924225?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h5NTkyMDcwNjE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="https://img-blog.csdn.net/20180809114541565?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h5NTkyMDcwNjE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="https://img-blog.csdn.net/201808091433436?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h5NTkyMDcwNjE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="https://img-blog.csdn.net/20180809143639985?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h5NTkyMDcwNjE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="https://img-blog.csdn.net/20180809153920599?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h5NTkyMDcwNjE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="https://img-blog.csdn.net/20180809160521362?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h5NTkyMDcwNjE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="https://img-blog.csdn.net/20180809161028562?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h5NTkyMDcwNjE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="http://yoursite.com/Users/zhaoman/blog/source/images/70.png">
+<meta property="og:image" content="http://yoursite.com/Users/zhaoman/blog/source/images/71.png">
+<meta property="og:image" content="http://yoursite.com/Users/zhaoman/blog/source/images/21.png">
+<meta property="og:image" content="http://yoursite.com/Users/zhaoman/blog/source/images/22.png">
+<meta property="og:image" content="http://yoursite.com/Users/zhaoman/blog/source/images/11.png">
+<meta property="og:image" content="http://yoursite.com/Users/zhaoman/blog/source/images/73.png">
+<meta property="og:image" content="http://yoursite.com/Users/zhaoman/blog/source/images/72.png">
+<meta property="og:image" content="http://yoursite.com/Users/zhaoman/blog/source/images/74.png">
 <meta property="article:published_time" content="2020-05-18T06:14:53.000Z">
-<meta property="article:modified_time" content="2020-05-18T06:51:41.815Z">
+<meta property="article:modified_time" content="2020-05-30T16:31:43.050Z">
 <meta property="article:author" content="赵二满">
 <meta property="article:tag" content="赵二满">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdn.net/20180808170921431?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h5NTkyMDcwNjE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta name="twitter:image" content="http://yoursite.com/Users/zhaoman/blog/source/images/70.png">
   
     <link rel="alternative" href="/atom.xml" title="赵二满" type="application/atom+xml">
   
@@ -233,7 +233,7 @@
 <p><strong>解决思路一：纵向扩展</strong><br>升级硬件，提高单机性能(增加内存，增强CPU、用更高性能的磁盘(如固态硬盘)，比如可以购买IBM的高端服务器。这种方法简单易行，但单台计算机的扩展空间有限，CPU、内存、磁盘再怎么扩展也是有限的，无法无限扩展。除此之外，成本较高，高端服务器常常非常昂贵，几百万甚至上千万一台，一般的小公司承受不起这样高昂的成本。<br><strong>解决思路二：横向扩展</strong><br>用多台节点分布式集群处理 ，通过增加节点数量提高处理能力，这里说的节点指的就是一台计算机。其思想为任务分摊，通过协作来实现单节点无法实现的任务，且成本相对低(可采用普通机器) 、易于线性扩展。但是其系统复杂度增加，我们要将我们的web应用部署到每一个节点上面，而多个节点协同工作时就要考虑：如何调度资源、任务如何监控、中间结果如何调度、系统如何容错、如何实现众多节点间的协调等问题。</p>
 <h3><span id="hadoop">Hadoop</span></h3><p>Hadoop是一个开源的可运行于大规模集群上的分布式文件系统和运行处理基础框架。其擅长于在廉价机器搭建的集群上进行海量数据(结构化与非结构化)的存储与离线处理。Hadoop就是一门用来处理大数据的技术，就是用来解决上述提到的分布式计算里面的5个技术难题的。</p>
 <p>Hadoop 由 Apache Software Foundation 公司于 2005 年秋天作为 Lucene 的子 项目 Nutch 的一部分正式引入。它受到最先由 Google Lab 开发的 MapReduce 和 Google File System 的启发。2006 年 3 月份，MapReduce 和 Nutch Distributed File System (NDFS) 分别被纳入称为 Hadoop 的项目中。　　Hadoop 是最受欢迎的在 Internet 上对搜索关键字进行内容分类的工具，但它也可以解决许多要求极大伸缩性的问题。例如，如果您要 grep 一个 10TB 的巨型文件，会出现什么情况？在传统的系统上，这将需要很长的时间。但是 Hadoop 在设计时就考虑到这些问题，因此能大大提高效率。</p>
-<h3><span id="hadoop的生态坏境">Hadoop的生态坏境</span></h3><p>Hadoop是一个能够对大量数据进行分布式处理的软件框架。具有可靠、高效、可伸缩的特点。Hadoop的核心是HDFS和Mapreduce，hadoop2.0还包括YARN。<br><img src="https://img-blog.csdn.net/20180808170921431?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h5NTkyMDcwNjE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="Hadoop生态系统"></p>
+<h3><span id="hadoop的生态坏境">Hadoop的生态坏境</span></h3><p>Hadoop是一个能够对大量数据进行分布式处理的软件框架。具有可靠、高效、可伸缩的特点。Hadoop的核心是HDFS和Mapreduce，hadoop2.0还包括YARN。<br><img src="/Users/zhaoman/blog/source/images/70.png" alt="Hadoop生态系统"></p>
 <h3><span id="hdfshadoop分布式文件系统">HDFS（Hadoop分布式文件系统）</span></h3><p>HDFS（Hadoop Distributed File System）源自于Google的GFS论文，发表于2003年10月，HDFS是GFS克隆版。是Hadoop体系中数据存储管理的基础。它是一个高度容错的系统，能检测和应对硬件故障，用于在低成本的通用硬件上运行。HDFS简化了文件的一致性模型，通过流式数据访问，提供高吞吐量应用程序数据访问功能，适合带有大型数据集的应用程序。</p>
 <h3><span id="yarnyet-another-resource-negotiator">YARN（Yet Another Resource Negotiator）</span></h3><p>YARN是一种 Hadoop 资源管理器，它是一个通用资源管理系统，可为上层应用提供统一的资源管理和调度，它的引入为集群在利用率、资源统一管理和数据共享等方面带来了巨大好处。</p>
 <p>Hadoop YARN采用双层调度框架。首先，RM将资源分配给AM。其次，AM再将资源进一步分配给各个Task。YARN与“all or nothing”策略不同（Apache Mesos），其遵循基于资源预留的调度策略，当资源不够时，会为Task预留，直到资源充足。</p>
@@ -256,23 +256,23 @@
 <h3><span id="spark">Spark</span></h3><p>Spark是UC Berkeley AMPLab开发的是一种计算框架，分布式资源工作交由集群管理软件（Mesos、YARN） 。</p>
 <p>Spark的特点</p>
 <p><strong>先进架构</strong><br>Spark采用Scala语言编写，底层采用了actor model的akka作为通讯框架，代码十分简洁高效。<br>基于DAG图的执行引擎，减少多次计算之间中间结果写到Hdfs的开销。<br>建立在统一抽象的RDD（分布式内存抽象）之上,使得它可以以基本一致的方式应对不同的大数据处理场景。<br><strong>高效</strong><br>提供Cache机制来支持需要反复迭代的计算或者多次数据共享，减少数据读取的IO开销。<br>与Hadoop的MapReduce相比，Spark基于内存的运算比MR要快100倍；而基于硬盘的运算也要快10倍！<br><strong>易用</strong><br>Spark提供广泛的数据集操作类型（20+种），不像Hadoop只提供了Map和Reduce两种操作。<br>Spark支持Java，Python和Scala API，支持交互式的Python和Scala的shell。<br><strong>提供整体解决方案</strong><br>以其RDD模型的强大表现能力，逐渐形成了一套自己的生态圈，提供了full-stack的解决方案。<br>主要包括Spark内存中批处理，Spark SQL交互式查询，Spark Streaming流式计算， GraphX和MLlib提供的常用图计算和机器学习算法。<br><strong>与Hadoop无缝连接</strong><br>Spark可以使用YARN作为它的集群管理器<br>读取HDFS,HBase等一切Hadoop的数据。</p>
-<h4><span id="spark整体架构">Spark整体架构</span></h4><img src="https://img-blog.csdn.net/20180809103924225?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h5NTkyMDcwNjE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="Spark整体架构" style="zoom:75%;">
+<h4><span id="spark整体架构">Spark整体架构</span></h4><img src="/Users/zhaoman/blog/source/images/71.png" alt="Spark整体架构" style="zoom:75%;">
 
 <p>Spark提供了多种高级工具，如： Shark SQL应用于即席查询（Ad-hoc query）、Spark Streaming应用于流式计算、 MLlib应用于机器学习、GraphX应用于图处理。Spark还可以基于自带的standalone集群管理器独立运行，也可以部署在Apache Mesos 和 Hadoop YARN 等集群管理器上运行。Spark可以访问存储在HDFS、 Hbase、Cassandra、Amazon S3、本地文件系统等等上的数据，Spark支持文本文件，序列文件，以及任何Hadoop的InputFormat。</p>
 <h4><span id="spark核心概念">Spark核心概念</span></h4><p>Spark任务提供多层分解的概念，Spark组件将用户的应用程序分解为内部执行任务并提供执行容器，资源管理为spark组件提供资源管理和调度。</p>
-<h4><span id="spark任务">Spark任务</span></h4><p>应用程序：由一个driver program和多个job构成<br>job：由多个stage组成<br>stage：对应一个taskset<br>taskset：对应一组关联的相互之间没有shuffle依赖关系的task组成。<br>task：任务最小的工作单元<br><img src="https://img-blog.csdn.net/20180809114541565?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h5NTkyMDcwNjE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="Spark任务"></p>
+<h4><span id="spark任务">Spark任务</span></h4><p>应用程序：由一个driver program和多个job构成<br>job：由多个stage组成<br>stage：对应一个taskset<br>taskset：对应一组关联的相互之间没有shuffle依赖关系的task组成。<br>task：任务最小的工作单元<br><img src="/Users/zhaoman/blog/source/images/21.png" alt="Spark任务"></p>
 <p><strong>Spark组件</strong><br>Driver Program (驱动程序) ：Spark 的核心组件<br>构建SparkContext(Spark应用的入口,它负责和整个集群的交互，创建需要的变量，还包含集群的配置信息等)<br>将用户提交的job转换为DAG图(类似数据处理的流程图)<br>根据策略将DAG图划分为多个stage，根据分区从而生成一系列tasks<br>根据tasks要求向资源管理器申请资源<br>提交任务并检测任务状态<br><strong>Executor</strong><br>真正执行task的单元，一个Worker Node上可以有多个Executor</p>
 <h4><span id="资源管理组件">资源管理组件</span></h4><p>YARN（通用）：Master/Slave结构<br>Resource Manager(RM)：全局的资源管理器，负责系统的资源管理和分配<br>Node Manager(NM)：每个节点上的资源和任务管理器<br>Application Master(AM)：每个应用程序都有一个，负责任务的调度和监视，并与RM调度器协商为任务获取资源。<br>Standalone（Spark自带）：Master/Slave结构<br>Master：类似于YARN的RM<br>Worker：类似于YARN的NM</p>
 <h4><span id="spark端到端流程">Spark端到端流程</span></h4><p>Spark的Driver Program (简称Driver)包含用户的应用程序，Driver完成task的解析和生成。</p>
 <p>Driver向Cluster Manager（集群资源管理器）申请运行task需要的资源。<br>集群资源管理器为task分配满足要求的节点，并在节点按照要求创建Executor<br>创建的Executor向Driver注册。<br>Driver将Spark应用程序的代码和文件传送给分配的Executor<br>Executor运行task，运行完之后将结果返回给Driver或者写入HDFS或其他介质。</p>
 <h4><span id="spark流程">Spark流程</span></h4><p><strong>Spark on Standalone</strong><br>Master和Worker是Standalone的角色，Driver和Executor是Spark的角色。Master负责分配资源，分配Driver和Executor，让Worker启动Driver和Executor，只管理到Executor层，不涉及任务。Driver负责生成task，并与Executor通信，进行任务的调度和结果跟踪，不涉及资源。</p>
 <p><strong>Driver运行在Worker</strong></p>
-<p><img src="https://img-blog.csdn.net/201808091433436?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h5NTkyMDcwNjE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="Driver运行在Worker"></p>
+<p><img src="/Users/zhaoman/blog/source/images/22.png" alt="Driver运行在Worker"></p>
 <p>客户端把作业发布到Master<br>Master让一个Worker启动Driver，并将作业推送给Driver<br>Driver进程生成一系列task<br>Driver向Master申请资源<br>Master让调度的Worker启动Exeuctor<br>Exeuctor启动后向Driver注册。<br>Driver将task调度到Exeuctor执行。<br>Executor执行结果写入文件或返回Driver</p>
 <p><strong>Driver运行在Client</strong></p>
-<p><img src="https://img-blog.csdn.net/20180809143639985?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h5NTkyMDcwNjE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="Driver运行在Client"></p>
+<p><img src="/Users/zhaoman/blog/source/images/11.png" alt="Driver运行在Client"></p>
 <p>客户端启动后直接运行用户程序，启动Driver<br>Driver进程生成一系列task<br>Driver向Master申请资源<br>Master让调度的Worker启动Exeuctor<br>Exeuctor启动后向Driver注册。<br>Driver将task调度到Exeuctor执行。<br>Executor执行结果写入文件或返回Driver</p>
-<h4><span id="spark的核心组件">Spark的核心组件</span></h4><p><img src="https://img-blog.csdn.net/20180809153920599?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h5NTkyMDcwNjE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="Spark的核心组件"></p>
+<h4><span id="spark的核心组件">Spark的核心组件</span></h4><p><img src="/Users/zhaoman/blog/source/images/73.png" alt="Spark的核心组件"></p>
 <p>Spark的核心组件包括RDD、Scheduler、Storage、Shuffle四部分：</p>
 <p>RDD是Spark最核心最精髓的部分，Spark将所有数据都抽象成RDD。<br>Scheduler是Spark的调度机制，分为DAGScheduler和TaskScheduler。<br>Storage模块主要管理缓存后的RDD、shuffle中间结果数据和broadcast数据<br>Shuffle分为Hash方式和Sort方式，两种方式的shuffle中间数据都写本地盘</p>
 <h4><span id="rddresilient-distributed-datasets">RDD（Resilient Distributed Datasets）</span></h4><p>RDD是弹性分布式数据集，是只读的分区记录集合。每个RDD有5个主要的属性：</p>
@@ -280,9 +280,9 @@
 <p>作用于RDD上的Operation分为转换(transformantion)和动作(action)。 Spark中的所有“转换”都是惰性的，在执行“转换”操作，并不会提交Job，只有在执行“动作”操作，所有operation才会被提交到cluster中真正的被执行。这样可以大大提升系统的性能。</p>
 <p>转换：从现有的数据集创建一个新的数据集即数据集中的内容会发生更改，由数据集A转换成为数据集B<br>动作：在数据集上运行计算后，返回一个值给驱动程序。 即数据集中的内容会被归约为一个具体的数值（Scala标量、集合类型的数据或存储）。<br>RDD拥有的操作比MR丰富的多，不仅仅包括Map、Reduce操作，还包括右图的filter、sort、join、save、count等操作，所以Spark比MR更容易方便完成更复杂的任务。</p>
 <p>RDD持久化<br>默认情况下，每一个转换过的RDD都会在它之上执行一个动作时被重新计算。如果RDD只被使用一次或者很少次，不需要持久化。如果RDD被重复使用或者计算其代价很高，才考虑持久化。另外，shuffle后生成的RDD尽量持久化，因为shuffle代价太高。RDD被缓存后，Spark将会在集群中，保存相关元数据，下次查询这个RDD时，它将能更快速访问，不需要计算。如果持久化无谓的RDD，会浪费内存（或硬盘）空间，反而降低系统整体性能</p>
-<p>RDD依赖关系<br>RDD只能基于在稳定物理存储中的数据集和其他已有的RDD上执行确定性操作来创建。能从其他RDD通过确定操作创建新的RDD的原因是RDD含有从其他RDD衍生（即计算）出本RDD的相关信息（即Lineage）。Dependency代表了RDD之间的依赖关系，即血缘（Lineage），分为窄依赖和宽依赖<br> <img src="https://img-blog.csdn.net/20180809160521362?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h5NTkyMDcwNjE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="窄依赖和宽依赖"></p>
+<p>RDD依赖关系<br>RDD只能基于在稳定物理存储中的数据集和其他已有的RDD上执行确定性操作来创建。能从其他RDD通过确定操作创建新的RDD的原因是RDD含有从其他RDD衍生（即计算）出本RDD的相关信息（即Lineage）。Dependency代表了RDD之间的依赖关系，即血缘（Lineage），分为窄依赖和宽依赖<br> <img src="/Users/zhaoman/blog/source/images/72.png" alt="窄依赖和宽依赖"></p>
 <p>窄依赖：一个父RDD最多被一个子RDD用在一个集群节点上管道式执行。比如map、filter、union等<br>宽依赖：子RDD的分区依赖于父RDD的所有分区，这是因为shuffle类操作要求所有父分区可用。比如groupByKey、reduceByKey、 sort、partitionBy等<br>根据RDD依赖关系的不同，Spark将每一个job分为不同的stage，stage之间的依赖关系形成了DAG图。对于窄依赖，Spark将其尽量划分在同一个stage中，因为它们可以进行流水线计算，而宽依赖往往意味着shuffle操作，这也是Spark划分stage的主要边界。</p>
-<p><img src="https://img-blog.csdn.net/20180809161028562?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h5NTkyMDcwNjE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="RDD依赖关系"></p>
+<p><img src="/Users/zhaoman/blog/source/images/74.png" alt="RDD依赖关系"></p>
 <p>宽/窄依赖的概念不止用在stage划分中，对容错也很有用。若Transformation操作中间发生计算失败，如果运算是窄依赖，只要把丢失的父RDD分区重算即可，跟其他节点没有依赖，这样可以大大加快场景恢复的开销，但如果运算是宽依赖，则需要父RDD的所有分区都存在， 重算代价就较高。当Lineage特别长时或者有宽依赖时，主动调用 checkpoint把当前数据写入稳定存储，作为检查点。</p>
 <h4><span id="scheduler">Scheduler</span></h4><p>Scheduler模块作为Spark最核心的模块之一，充分体现了Spark与MapReduce的不同之处，体现了Spark DAG思想的精巧和设计的优雅。Scheduler模块分为两大主要部分，DAGScheduler和TaskScheduler。<br>DAGScheduler把一个spark作业转换成成stage的DAG（Directed Acyclic Graph有向无环图），根据RDD和stage之间的关系，找出开销最小的调度方法，然后把stage以TaskSet的形式提交给TaskScheduler。TaskScheduler模块用于与DAGScheduler交互，负责任务的具体调度和运行。任务调度模块基于两个Trait：TaskScheduler和 SchedulerBackend。</p>
 <h4><span id="storage">Storage</span></h4><p>Storage模块主要分为两层：</p>

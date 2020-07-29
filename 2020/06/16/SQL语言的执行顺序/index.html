@@ -6,29 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hadoop与Spark等大数据框架介绍 | 赵二满</title>
+  <title>SQL语言的执行顺序 | 赵二满</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hadoop与Spark等大数据框架介绍">
+  <meta name="description" content="(1) FROM:对FROM子句中的左表和右表执行笛卡儿积，产生虚拟表VT1;(2) ON: 对虚拟表VT1进行ON筛选，只有那些符合的行才被插入虚拟表VT2; (3) JOIN: 如果指定了&#96;OUTER JOIN&#96;(如LEFT OUTER JOIN、RIGHT OUTER JOIN)，那么保留表中未匹配的行作为外部行添加到虚拟表VT2，产生虚拟表VT3。如果FROM子句包含两个以上的表，则对上一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hadoop与Spark等大数据框架介绍">
-<meta property="og:url" content="http://yoursite.com/2020/05/18/Hadoop%E4%B8%8ESpark%E7%AD%89%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D/index.html">
+<meta property="og:title" content="SQL语言的执行顺序">
+<meta property="og:url" content="http://yoursite.com/2020/06/16/SQL%E8%AF%AD%E8%A8%80%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/index.html">
 <meta property="og:site_name" content="赵二满">
-<meta property="og:description" content="Hadoop与Spark等大数据框架介绍">
+<meta property="og:description" content="(1) FROM:对FROM子句中的左表和右表执行笛卡儿积，产生虚拟表VT1;(2) ON: 对虚拟表VT1进行ON筛选，只有那些符合的行才被插入虚拟表VT2; (3) JOIN: 如果指定了&#96;OUTER JOIN&#96;(如LEFT OUTER JOIN、RIGHT OUTER JOIN)，那么保留表中未匹配的行作为外部行添加到虚拟表VT2，产生虚拟表VT3。如果FROM子句包含两个以上的表，则对上一">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/images/70.png">
-<meta property="og:image" content="http://yoursite.com/images/71.png">
-<meta property="og:image" content="http://yoursite.com/images/21.png">
-<meta property="og:image" content="http://yoursite.com/images/22.png">
-<meta property="og:image" content="http://yoursite.com/images/11.png">
-<meta property="og:image" content="http://yoursite.com/images/73.png">
-<meta property="og:image" content="http://yoursite.com/images/72.png">
-<meta property="og:image" content="http://yoursite.com/images/74.png">
-<meta property="article:published_time" content="2020-05-18T06:14:53.000Z">
-<meta property="article:modified_time" content="2020-06-16T02:42:58.691Z">
+<meta property="article:published_time" content="2020-06-16T03:01:36.000Z">
+<meta property="article:modified_time" content="2020-06-16T03:05:44.954Z">
 <meta property="article:author" content="赵二满">
 <meta property="article:tag" content="赵二满">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/images/70.png">
   
     <link rel="alternative" href="/atom.xml" title="赵二满" type="application/atom+xml">
   
@@ -172,14 +163,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Hadoop与Spark等大数据框架介绍" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-SQL语言的执行顺序" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hadoop与Spark等大数据框架介绍
+      SQL语言的执行顺序
     </h1>
   
 
@@ -191,8 +182,8 @@
 	</span>
 
 
-<a href="/2020/05/18/Hadoop%E4%B8%8ESpark%E7%AD%89%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D/" class="archive-article-date">
-  	<time datetime="2020-05-18T06:14:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
+<a href="/2020/06/16/SQL%E8%AF%AD%E8%A8%80%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/" class="archive-article-date">
+  	<time datetime="2020-06-16T03:01:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-16</time>
 </a>
         
         
@@ -201,7 +192,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">4.7k字</span>
+        <span class="post-count">330字</span>
       </span>
     </span>
 
@@ -210,7 +201,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">16分</span>
+        <span class="post-count">1分</span>
       </span>
     </span>
 </div>
@@ -222,74 +213,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1><span id="hadoop与spark等大数据框架介绍">Hadoop与Spark等大数据框架介绍</span></h1><a id="more"></a>
-
-<p>解决大数据处理相关的问题，往往要经过数据收集（Flume、Kafka、Sqoop）、数据存储（HDFS、HBase）、资源管理（YARN）、计算（MapReduce、Spark）、数据分析（Pandas、NumPy、R）、数据可视化（Echart、Tableau）等环节。各个环节都有其相应的工具，Hadoop和Spark就是大数据处理流程中非常常用的两个框架。</p>
-<h3><span id="一个实际的需求场景日志分析">一个实际的需求场景：日志分析</span></h3><p>日志分析是对日志中的每一个用户的流量进行汇总求和。对于一个日志文件，如果只有这么几行数据，我们一般会采用这样的处理方式</p>
-<blockquote>
-<p>读取一行日志<br>抽取手机号和流量字段<br>累加到HashMap中<br>遍历输出结果</p>
-</blockquote>
-<p>如果数据量变得很大呢，比如一个日志文件里面有几个GB数据，仍然一行一行去读，那么就会因为磁盘的IO瓶颈导致效率太低，速度太慢。如果一次性加载到内存，那么就会因为单台计算机的内存空间有限而导致内存溢出。如果将中间结果全部缓存到HashMap中，那么也会因为单台计算机的内存空间有限而导致内存溢出。可以选择采用多线程处理，但是依然无法改变资源瓶颈的现实，因为一台计算器的CPU资源，内存资源，磁盘IO瓶颈是定，创建再多的线程也无法改变这个现实。</p>
-<p><strong>解决思路一：纵向扩展</strong><br>升级硬件，提高单机性能(增加内存，增强CPU、用更高性能的磁盘(如固态硬盘)，比如可以购买IBM的高端服务器。这种方法简单易行，但单台计算机的扩展空间有限，CPU、内存、磁盘再怎么扩展也是有限的，无法无限扩展。除此之外，成本较高，高端服务器常常非常昂贵，几百万甚至上千万一台，一般的小公司承受不起这样高昂的成本。<br><strong>解决思路二：横向扩展</strong><br>用多台节点分布式集群处理 ，通过增加节点数量提高处理能力，这里说的节点指的就是一台计算机。其思想为任务分摊，通过协作来实现单节点无法实现的任务，且成本相对低(可采用普通机器) 、易于线性扩展。但是其系统复杂度增加，我们要将我们的web应用部署到每一个节点上面，而多个节点协同工作时就要考虑：如何调度资源、任务如何监控、中间结果如何调度、系统如何容错、如何实现众多节点间的协调等问题。</p>
-<h3><span id="hadoop">Hadoop</span></h3><p>Hadoop是一个开源的可运行于大规模集群上的分布式文件系统和运行处理基础框架。其擅长于在廉价机器搭建的集群上进行海量数据(结构化与非结构化)的存储与离线处理。Hadoop就是一门用来处理大数据的技术，就是用来解决上述提到的分布式计算里面的5个技术难题的。</p>
-<p>Hadoop 由 Apache Software Foundation 公司于 2005 年秋天作为 Lucene 的子 项目 Nutch 的一部分正式引入。它受到最先由 Google Lab 开发的 MapReduce 和 Google File System 的启发。2006 年 3 月份，MapReduce 和 Nutch Distributed File System (NDFS) 分别被纳入称为 Hadoop 的项目中。　　Hadoop 是最受欢迎的在 Internet 上对搜索关键字进行内容分类的工具，但它也可以解决许多要求极大伸缩性的问题。例如，如果您要 grep 一个 10TB 的巨型文件，会出现什么情况？在传统的系统上，这将需要很长的时间。但是 Hadoop 在设计时就考虑到这些问题，因此能大大提高效率。</p>
-<h3><span id="hadoop的生态坏境">Hadoop的生态坏境</span></h3><p>Hadoop是一个能够对大量数据进行分布式处理的软件框架。具有可靠、高效、可伸缩的特点。Hadoop的核心是HDFS和Mapreduce，hadoop2.0还包括YARN。<br><img src="/images/70.png" alt="Hadoop生态系统"></p>
-<h3><span id="hdfshadoop分布式文件系统">HDFS（Hadoop分布式文件系统）</span></h3><p>HDFS（Hadoop Distributed File System）源自于Google的GFS论文，发表于2003年10月，HDFS是GFS克隆版。是Hadoop体系中数据存储管理的基础。它是一个高度容错的系统，能检测和应对硬件故障，用于在低成本的通用硬件上运行。HDFS简化了文件的一致性模型，通过流式数据访问，提供高吞吐量应用程序数据访问功能，适合带有大型数据集的应用程序。</p>
-<h3><span id="yarnyet-another-resource-negotiator">YARN（Yet Another Resource Negotiator）</span></h3><p>YARN是一种 Hadoop 资源管理器，它是一个通用资源管理系统，可为上层应用提供统一的资源管理和调度，它的引入为集群在利用率、资源统一管理和数据共享等方面带来了巨大好处。</p>
-<p>Hadoop YARN采用双层调度框架。首先，RM将资源分配给AM。其次，AM再将资源进一步分配给各个Task。YARN与“all or nothing”策略不同（Apache Mesos），其遵循基于资源预留的调度策略，当资源不够时，会为Task预留，直到资源充足。</p>
-<p>运行在YARN上的计算框架</p>
-<ul>
-<li>离线计算框架：MapReduce</li>
-<li>DAG计算框架：Tez</li>
-<li>流式计算框架：Storm</li>
-<li>内存计算框架：Spark</li>
-<li>图计算框架：Giraph、GraphLib</li>
-</ul>
-<h3><span id="mapreduce分布式计算框架">MapReduce（分布式计算框架）</span></h3><p>Hadoop MapReduce是google MapReduce 克隆版。</p>
-<p>MapReduce是一种计算模型，用以进行大数据量的计算。其中Map对数据集上的独立元素进行指定的操作，生成键-值对形式中间结果。Reduce则对中间结果中相同“键”的所有“值”进行规约，以得到最终结果。MapReduce这样的功能划分，非常适合在大量计算机组成的分布式并行环境里进行数据处理。</p>
-<h3><span id="hive基于hadoop的数据仓库">Hive（基于Hadoop的数据仓库）</span></h3><p>Hive由facebook开源，最初用于解决海量结构化的日志数据统计问题。Hive定义了一种类似SQL的查询语言(HQL),将SQL转化为MapReduce任务在Hadoop上执行，通常用于离线分析。</p>
-<h3><span id="hbase分布式列存数据库">HBase（分布式列存数据库）</span></h3><p>Hbae源自Google的Bigtable论文，发表于2006年11月，HBase是Google Bigtable克隆版。HBase是一个针对结构化数据的可伸缩、高可靠、高性能、分布式和面向列的动态模式数据库。和传统关系数据库不同，HBase采用了BigTable的数据模型：增强的稀疏排序映射表（Key/Value），其中，键由行关键字、列关键字和时间戳构成。HBase提供了对大规模数据的随机、实时读写访问，同时，HBase中保存的数据可以使用MapReduce来处理，它将数据存储和并行计算完美地结合在一起。</p>
-<p>HBase和Hive在大数据架构中处在不同位置，HBase主要解决实时数据查询问题，Hive主要解决数据处理和计算问题，一般是配合使用。</p>
-<h3><span id="zookeeper分布式协作服务">Zookeeper（分布式协作服务）</span></h3><p>源自Google的Chubby论文，发表于2006年11月，Zookeeper是Chubby克隆版<br>解决分布式环境下的数据管理问题：统一命名，状态同步，集群管理，配置同步等。</p>
-<h3><span id="sqoop数据同步工具">Sqoop（数据同步工具）</span></h3><p>Sqoop是SQL-to-Hadoop的缩写，主要用于传统数据库和Hadoop之前传输数据。数据的导入和导出本质上是Mapreduce程序，充分利用了MR的并行化和容错性。</p>
-<h3><span id="pig基于hadoop的数据流系统">Pig（基于Hadoop的数据流系统）</span></h3><p>由yahoo!开源，设计动机是提供一种基于MapReduce的ad-hoc(计算在query时发生)数据分析工具。其定义了一种数据流语言—Pig Latin，将脚本转换为MapReduce任务在Hadoop上执行，通常用于进行离线分析。</p>
-<h3><span id="spark">Spark</span></h3><p>Spark是UC Berkeley AMPLab开发的是一种计算框架，分布式资源工作交由集群管理软件（Mesos、YARN） 。</p>
-<p>Spark的特点</p>
-<p><strong>先进架构</strong><br>Spark采用Scala语言编写，底层采用了actor model的akka作为通讯框架，代码十分简洁高效。<br>基于DAG图的执行引擎，减少多次计算之间中间结果写到Hdfs的开销。<br>建立在统一抽象的RDD（分布式内存抽象）之上,使得它可以以基本一致的方式应对不同的大数据处理场景。<br><strong>高效</strong><br>提供Cache机制来支持需要反复迭代的计算或者多次数据共享，减少数据读取的IO开销。<br>与Hadoop的MapReduce相比，Spark基于内存的运算比MR要快100倍；而基于硬盘的运算也要快10倍！<br><strong>易用</strong><br>Spark提供广泛的数据集操作类型（20+种），不像Hadoop只提供了Map和Reduce两种操作。<br>Spark支持Java，Python和Scala API，支持交互式的Python和Scala的shell。<br><strong>提供整体解决方案</strong><br>以其RDD模型的强大表现能力，逐渐形成了一套自己的生态圈，提供了full-stack的解决方案。<br>主要包括Spark内存中批处理，Spark SQL交互式查询，Spark Streaming流式计算， GraphX和MLlib提供的常用图计算和机器学习算法。<br><strong>与Hadoop无缝连接</strong><br>Spark可以使用YARN作为它的集群管理器<br>读取HDFS,HBase等一切Hadoop的数据。</p>
-<h4><span id="spark整体架构">Spark整体架构</span></h4><img src="/images/71.png" alt="Spark整体架构" style="zoom:75%;">
-
-<p>Spark提供了多种高级工具，如： Shark SQL应用于即席查询（Ad-hoc query）、Spark Streaming应用于流式计算、 MLlib应用于机器学习、GraphX应用于图处理。Spark还可以基于自带的standalone集群管理器独立运行，也可以部署在Apache Mesos 和 Hadoop YARN 等集群管理器上运行。Spark可以访问存储在HDFS、 Hbase、Cassandra、Amazon S3、本地文件系统等等上的数据，Spark支持文本文件，序列文件，以及任何Hadoop的InputFormat。</p>
-<h4><span id="spark核心概念">Spark核心概念</span></h4><p>Spark任务提供多层分解的概念，Spark组件将用户的应用程序分解为内部执行任务并提供执行容器，资源管理为spark组件提供资源管理和调度。</p>
-<h4><span id="spark任务">Spark任务</span></h4><p>应用程序：由一个driver program和多个job构成<br>job：由多个stage组成<br>stage：对应一个taskset<br>taskset：对应一组关联的相互之间没有shuffle依赖关系的task组成。<br>task：任务最小的工作单元<br><img src="/images/21.png" alt="Spark任务"></p>
-<p><strong>Spark组件</strong><br>Driver Program (驱动程序) ：Spark 的核心组件<br>构建SparkContext(Spark应用的入口,它负责和整个集群的交互，创建需要的变量，还包含集群的配置信息等)<br>将用户提交的job转换为DAG图(类似数据处理的流程图)<br>根据策略将DAG图划分为多个stage，根据分区从而生成一系列tasks<br>根据tasks要求向资源管理器申请资源<br>提交任务并检测任务状态<br><strong>Executor</strong><br>真正执行task的单元，一个Worker Node上可以有多个Executor</p>
-<h4><span id="资源管理组件">资源管理组件</span></h4><p>YARN（通用）：Master/Slave结构<br>Resource Manager(RM)：全局的资源管理器，负责系统的资源管理和分配<br>Node Manager(NM)：每个节点上的资源和任务管理器<br>Application Master(AM)：每个应用程序都有一个，负责任务的调度和监视，并与RM调度器协商为任务获取资源。<br>Standalone（Spark自带）：Master/Slave结构<br>Master：类似于YARN的RM<br>Worker：类似于YARN的NM</p>
-<h4><span id="spark端到端流程">Spark端到端流程</span></h4><p>Spark的Driver Program (简称Driver)包含用户的应用程序，Driver完成task的解析和生成。</p>
-<p>Driver向Cluster Manager（集群资源管理器）申请运行task需要的资源。<br>集群资源管理器为task分配满足要求的节点，并在节点按照要求创建Executor<br>创建的Executor向Driver注册。<br>Driver将Spark应用程序的代码和文件传送给分配的Executor<br>Executor运行task，运行完之后将结果返回给Driver或者写入HDFS或其他介质。</p>
-<h4><span id="spark流程">Spark流程</span></h4><p><strong>Spark on Standalone</strong><br>Master和Worker是Standalone的角色，Driver和Executor是Spark的角色。Master负责分配资源，分配Driver和Executor，让Worker启动Driver和Executor，只管理到Executor层，不涉及任务。Driver负责生成task，并与Executor通信，进行任务的调度和结果跟踪，不涉及资源。</p>
-<p><strong>Driver运行在Worker</strong></p>
-<p><img src="/images/22.png" alt="Driver运行在Worker"></p>
-<p>客户端把作业发布到Master<br>Master让一个Worker启动Driver，并将作业推送给Driver<br>Driver进程生成一系列task<br>Driver向Master申请资源<br>Master让调度的Worker启动Exeuctor<br>Exeuctor启动后向Driver注册。<br>Driver将task调度到Exeuctor执行。<br>Executor执行结果写入文件或返回Driver</p>
-<p><strong>Driver运行在Client</strong></p>
-<p><img src="/images/11.png" alt="Driver运行在Client"></p>
-<p>客户端启动后直接运行用户程序，启动Driver<br>Driver进程生成一系列task<br>Driver向Master申请资源<br>Master让调度的Worker启动Exeuctor<br>Exeuctor启动后向Driver注册。<br>Driver将task调度到Exeuctor执行。<br>Executor执行结果写入文件或返回Driver</p>
-<h4><span id="spark的核心组件">Spark的核心组件</span></h4><p><img src="/images/73.png" alt="Spark的核心组件"></p>
-<p>Spark的核心组件包括RDD、Scheduler、Storage、Shuffle四部分：</p>
-<p>RDD是Spark最核心最精髓的部分，Spark将所有数据都抽象成RDD。<br>Scheduler是Spark的调度机制，分为DAGScheduler和TaskScheduler。<br>Storage模块主要管理缓存后的RDD、shuffle中间结果数据和broadcast数据<br>Shuffle分为Hash方式和Sort方式，两种方式的shuffle中间数据都写本地盘</p>
-<h4><span id="rddresilient-distributed-datasets">RDD（Resilient Distributed Datasets）</span></h4><p>RDD是弹性分布式数据集，是只读的分区记录集合。每个RDD有5个主要的属性：</p>
-<p>一组分片(Partition)：数据集的最基本组成单位<br>一个计算每个分片的函数：对于给定的数据集，需要做哪些计算<br>依赖（Dependencies）：RDD的依赖关系，描述了RDD之间的lineage<br>preferredLocations（可选）：对于data partition的位置偏好<br>partitioner（可选）：对于计算出来的数据结果如何分发</p>
-<p>作用于RDD上的Operation分为转换(transformantion)和动作(action)。 Spark中的所有“转换”都是惰性的，在执行“转换”操作，并不会提交Job，只有在执行“动作”操作，所有operation才会被提交到cluster中真正的被执行。这样可以大大提升系统的性能。</p>
-<p>转换：从现有的数据集创建一个新的数据集即数据集中的内容会发生更改，由数据集A转换成为数据集B<br>动作：在数据集上运行计算后，返回一个值给驱动程序。 即数据集中的内容会被归约为一个具体的数值（Scala标量、集合类型的数据或存储）。<br>RDD拥有的操作比MR丰富的多，不仅仅包括Map、Reduce操作，还包括右图的filter、sort、join、save、count等操作，所以Spark比MR更容易方便完成更复杂的任务。</p>
-<p>RDD持久化<br>默认情况下，每一个转换过的RDD都会在它之上执行一个动作时被重新计算。如果RDD只被使用一次或者很少次，不需要持久化。如果RDD被重复使用或者计算其代价很高，才考虑持久化。另外，shuffle后生成的RDD尽量持久化，因为shuffle代价太高。RDD被缓存后，Spark将会在集群中，保存相关元数据，下次查询这个RDD时，它将能更快速访问，不需要计算。如果持久化无谓的RDD，会浪费内存（或硬盘）空间，反而降低系统整体性能</p>
-<p>RDD依赖关系<br>RDD只能基于在稳定物理存储中的数据集和其他已有的RDD上执行确定性操作来创建。能从其他RDD通过确定操作创建新的RDD的原因是RDD含有从其他RDD衍生（即计算）出本RDD的相关信息（即Lineage）。Dependency代表了RDD之间的依赖关系，即血缘（Lineage），分为窄依赖和宽依赖<br> <img src="/images/72.png" alt="窄依赖和宽依赖"></p>
-<p>窄依赖：一个父RDD最多被一个子RDD用在一个集群节点上管道式执行。比如map、filter、union等<br>宽依赖：子RDD的分区依赖于父RDD的所有分区，这是因为shuffle类操作要求所有父分区可用。比如groupByKey、reduceByKey、 sort、partitionBy等<br>根据RDD依赖关系的不同，Spark将每一个job分为不同的stage，stage之间的依赖关系形成了DAG图。对于窄依赖，Spark将其尽量划分在同一个stage中，因为它们可以进行流水线计算，而宽依赖往往意味着shuffle操作，这也是Spark划分stage的主要边界。</p>
-<p><img src="/images/74.png" alt="RDD依赖关系"></p>
-<p>宽/窄依赖的概念不止用在stage划分中，对容错也很有用。若Transformation操作中间发生计算失败，如果运算是窄依赖，只要把丢失的父RDD分区重算即可，跟其他节点没有依赖，这样可以大大加快场景恢复的开销，但如果运算是宽依赖，则需要父RDD的所有分区都存在， 重算代价就较高。当Lineage特别长时或者有宽依赖时，主动调用 checkpoint把当前数据写入稳定存储，作为检查点。</p>
-<h4><span id="scheduler">Scheduler</span></h4><p>Scheduler模块作为Spark最核心的模块之一，充分体现了Spark与MapReduce的不同之处，体现了Spark DAG思想的精巧和设计的优雅。Scheduler模块分为两大主要部分，DAGScheduler和TaskScheduler。<br>DAGScheduler把一个spark作业转换成成stage的DAG（Directed Acyclic Graph有向无环图），根据RDD和stage之间的关系，找出开销最小的调度方法，然后把stage以TaskSet的形式提交给TaskScheduler。TaskScheduler模块用于与DAGScheduler交互，负责任务的具体调度和运行。任务调度模块基于两个Trait：TaskScheduler和 SchedulerBackend。</p>
-<h4><span id="storage">Storage</span></h4><p>Storage模块主要分为两层：</p>
-<p>通信层：Storage模块采用的是master-slave结构来实现通信层，master和slave之间传输控制信息、状态信息，这些都是通过通信层来实现的。<br>存储层：Storage模块需要把数据存储到disk或是memory上面，有可能还需replicate到远端，这都是由存储层来实现和提供相应接口。<br>Storage模块提供了统一的操作类BlockManager，外部类与storage模块打交道都需要通过调用BlockManager相应接口来实现。Storage模块存取的最小单位是数据块(Block)，Block与RDD中的Partition一一对应，所以所有的转换或动作操作最终都是对Block进行操作。</p>
-<h4><span id="shuffle">Shuffle</span></h4><p>Shuffle 中Map任务产生的结果会根据所设置的partitioner算法填充到当前执行任务所在机器的每个桶中。Reduce任务启动时时，会根据任务的ID，所依赖的Map任务ID以及MapStatus从远端或本地的BlockManager获取相应的数据作为输入进行处理。Shuffle数据必须持久化磁盘，不能缓存在内存。</p>
-<p>Spark之上提供了四种应用库：</p>
-<p>Spark SQL 是为处理结构化数据而设计的模块<br>Spark Streaming 可以很容易地创建可扩展和容错性的流式应用<br>MLlib 是Spark的可扩展机器学习库<br>GraphX 是Spark的并行图计算API</p>
+        <p>(1) FROM:对FROM子句中的左表<code>和右表</code>执行笛卡儿积，产生虚拟表VT1;<br>(2) ON: 对虚拟表VT1进行ON筛选，只有那些符合<code>的行才被插入虚拟表VT2;
+(3) JOIN: 如果指定了`OUTER JOIN`(如LEFT OUTER JOIN、RIGHT OUTER JOIN)，那么保留表中未匹配的行作为外部行添加到虚拟表VT2，产生虚拟表VT3。如果FROM子句包含两个以上的表，则对上一个连接生成的结果表VT3和下一个表重复执行步骤1~步骤3，直到处理完所有的表;
+(4) WHERE: 对虚拟表VT3应用WHERE过滤条件，只有符合</code>的记录才会被插入虚拟表VT4;<br>(5) GROUP By: 根据GROUP BY子句中的列，对VT4中的记录进行分组操作，产生VT5;<br>(6) CUBE|ROllUP: 对VT5进行CUBE或ROLLUP操作，产生表VT6;<br>(7) HAVING: 对虚拟表VT6应用HAVING过滤器，只有符合<code>的记录才会被插入到VT7;
+(8) SELECT: 第二次执行SELECT操作，选择指定的列，插入到虚拟表VT8中;
+(9) DISTINCT: 去除重复，产生虚拟表VT9;
+(10) ORDER BY: 将虚拟表VT9中的记录按照</code>进行排序操作，产生虚拟表VT10;<br>(11) LIMIT: 取出指定街行的记录，产生虚拟表VT11，并返回给查询用户</p>
 
       
 
@@ -374,7 +303,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/18/Hadoop%E4%B8%8ESpark%E7%AD%89%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/16/SQL%E8%AF%AD%E8%A8%80%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -388,18 +317,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/06/06/SQL%E8%AF%AD%E5%8F%A5%E7%A7%AF%E7%B4%AF/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          SQL语句积累
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/14/%E8%BF%90%E7%BB%B4%E4%B8%AD%E7%9A%84-sh%E6%96%87%E4%BB%B6/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">运维中的.sh文件</div>
+    <a href="/2020/06/06/SQL%E8%AF%AD%E5%8F%A5%E7%A7%AF%E7%B4%AF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SQL语句积累</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -426,7 +346,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text">Hadoop与Spark等大数据框架介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.0.1.</span> <span class="toc-text">一个实际的需求场景：日志分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.0.2.</span> <span class="toc-text">Hadoop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.0.3.</span> <span class="toc-text">Hadoop的生态坏境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.0.4.</span> <span class="toc-text">HDFS（Hadoop分布式文件系统）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.0.5.</span> <span class="toc-text">YARN（Yet Another Resource Negotiator）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.0.6.</span> <span class="toc-text">MapReduce（分布式计算框架）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.0.7.</span> <span class="toc-text">Hive（基于Hadoop的数据仓库）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.0.8.</span> <span class="toc-text">HBase（分布式列存数据库）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.0.9.</span> <span class="toc-text">Zookeeper（分布式协作服务）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.0.10.</span> <span class="toc-text">Sqoop（数据同步工具）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.0.11.</span> <span class="toc-text">Pig（基于Hadoop的数据流系统）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.0.12.</span> <span class="toc-text">Spark</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">1.0.12.1.</span> <span class="toc-text">Spark整体架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">1.0.12.2.</span> <span class="toc-text">Spark核心概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">1.0.12.3.</span> <span class="toc-text">Spark任务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">1.0.12.4.</span> <span class="toc-text">资源管理组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">1.0.12.5.</span> <span class="toc-text">Spark端到端流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">1.0.12.6.</span> <span class="toc-text">Spark流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">1.0.12.7.</span> <span class="toc-text">Spark的核心组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">1.0.12.8.</span> <span class="toc-text">RDD（Resilient Distributed Datasets）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">1.0.12.9.</span> <span class="toc-text">Scheduler</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">1.0.12.10.</span> <span class="toc-text">Storage</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">1.0.12.11.</span> <span class="toc-text">Shuffle</span></a></li></ol></li></ol></li></ol></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>

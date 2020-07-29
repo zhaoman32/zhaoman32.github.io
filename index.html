@@ -161,6 +161,214 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-SQL语言的执行顺序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/16/SQL%E8%AF%AD%E8%A8%80%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/">SQL语言的执行顺序</a>
+    </h1>
+  
+
+        
+        
+
+<a href="/2020/06/16/SQL%E8%AF%AD%E8%A8%80%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/" class="archive-article-date">
+  	<time datetime="2020-06-16T03:01:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-16</time>
+</a>
+        
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">330字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+
+          
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>(1) FROM:对FROM子句中的左表<code>和右表</code>执行笛卡儿积，产生虚拟表VT1;<br>(2) ON: 对虚拟表VT1进行ON筛选，只有那些符合<code>的行才被插入虚拟表VT2;
+(3) JOIN: 如果指定了`OUTER JOIN`(如LEFT OUTER JOIN、RIGHT OUTER JOIN)，那么保留表中未匹配的行作为外部行添加到虚拟表VT2，产生虚拟表VT3。如果FROM子句包含两个以上的表，则对上一个连接生成的结果表VT3和下一个表重复执行步骤1~步骤3，直到处理完所有的表;
+(4) WHERE: 对虚拟表VT3应用WHERE过滤条件，只有符合</code>的记录才会被插入虚拟表VT4;<br>(5) GROUP By: 根据GROUP BY子句中的列，对VT4中的记录进行分组操作，产生VT5;<br>(6) CUBE|ROllUP: 对VT5进行CUBE或ROLLUP操作，产生表VT6;<br>(7) HAVING: 对虚拟表VT6应用HAVING过滤器，只有符合<code>的记录才会被插入到VT7;
+(8) SELECT: 第二次执行SELECT操作，选择指定的列，插入到虚拟表VT8中;
+(9) DISTINCT: 去除重复，产生虚拟表VT9;
+(10) ORDER BY: 将虚拟表VT9中的记录按照</code>进行排序操作，产生虚拟表VT10;<br>(11) LIMIT: 取出指定街行的记录，产生虚拟表VT11，并返回给查询用户</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/16/SQL%E8%AF%AD%E8%A8%80%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-SQL语句积累" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/06/SQL%E8%AF%AD%E5%8F%A5%E7%A7%AF%E7%B4%AF/">SQL语句积累</a>
+    </h1>
+  
+
+        
+        
+
+<a href="/2020/06/06/SQL%E8%AF%AD%E5%8F%A5%E7%A7%AF%E7%B4%AF/" class="archive-article-date">
+  	<time datetime="2020-06-06T11:51:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-06</time>
+</a>
+        
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">150字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+
+          
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>imei设备数量查询</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">count</span>(<span class="keyword">distinct</span> imei) </span><br><span class="line"><span class="keyword">FROM</span> sec_social_engineering_app::sec_app_imei_applist_weekly$&#123;newest&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>对imei设备数计数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">count</span>(<span class="keyword">distinct</span> imei) <span class="keyword">FROM</span> sec_social_engineering_app::sec_app_imei_applist_weekly$&#123;newest&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>查找上报了淘宝的imei设备</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	date_key, </span><br><span class="line">	imei, </span><br><span class="line">	package_name, </span><br><span class="line">	app_name, </span><br><span class="line">	first_report_time, </span><br><span class="line">	last_report_time, </span><br><span class="line">	app_version </span><br><span class="line"><span class="keyword">FROM</span> sec_social_engineering_app::sec_app_applist_update_week20200525</span><br><span class="line"><span class="keyword">where</span> package_name = <span class="string">"com.taobao.taobao"</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>查找安装量top10的APP</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	package_name, </span><br><span class="line">	<span class="keyword">count</span>(<span class="keyword">DISTINCT</span> imei) <span class="keyword">AS</span> cou </span><br><span class="line"><span class="keyword">FROM</span> sec_social_engineering_app::sec_app_imei_applist_weekly$&#123;newest&#125; </span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> package_name </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> cou <span class="keyword">DESC</span> <span class="keyword">LIMIT</span> <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>时间倒序，每天的淘宝imei上报量</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	last_report_time, </span><br><span class="line">	<span class="keyword">count</span>(<span class="keyword">DISTINCT</span> imei) <span class="keyword">AS</span> cou </span><br><span class="line"><span class="keyword">FROM</span> sec_webank_app::sec_app_applist_test$&#123;newest&#125; </span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> last_report_time </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> last_report_time <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>​    逾期用户前1000</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	phone_raw, </span><br><span class="line">	idcard_raw, </span><br><span class="line">	imei_md5, </span><br><span class="line">	imei_raw, </span><br><span class="line">	app_date, </span><br><span class="line">	target, </span><br><span class="line">	<span class="keyword">category</span> </span><br><span class="line"><span class="keyword">FROM</span> sec_social_engineering_app::sec_app_isee_sample_lib_all$&#123;newest&#125; </span><br><span class="line"><span class="keyword">WHERE</span> imei_md5 != <span class="string">""</span> </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> app_date <span class="keyword">DESC</span> <span class="keyword">LIMIT</span> <span class="number">1000</span>;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/06/SQL%E8%AF%AD%E5%8F%A5%E7%A7%AF%E7%B4%AF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Hadoop与Spark等大数据框架介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -852,186 +1060,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/04/16/Linux-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E9%9B%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Hexo个人博客-域名绑定" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/16/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A/">Hexo个人博客--域名绑定</a>
-    </h1>
-  
-
-        
-        
-
-<a href="/2020/04/16/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A/" class="archive-article-date">
-  	<time datetime="2020-04-16T11:22:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-16</time>
-</a>
-        
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">551字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-
-          
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Hexo个人博客–域名绑定"><a href="#Hexo个人博客–域名绑定" class="headerlink" title="Hexo个人博客–域名绑定"></a>Hexo个人博客–域名绑定</h1>
-        
-          <a class="article-more-a" href="/2020/04/16/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/16/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-计算机方向好书推荐" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%96%B9%E5%90%91%E5%A5%BD%E4%B9%A6%E6%8E%A8%E8%8D%90/">计算机方向好书推荐</a>
-    </h1>
-  
-
-        
-        
-
-<a href="/2020/04/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%96%B9%E5%90%91%E5%A5%BD%E4%B9%A6%E6%8E%A8%E8%8D%90/" class="archive-article-date">
-  	<time datetime="2020-04-16T05:07:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-16</time>
-</a>
-        
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.1k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
-      </span>
-    </span>
-</div>
-
-          
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="计算机书单–相关书籍推荐"><a href="#计算机书单–相关书籍推荐" class="headerlink" title="计算机书单–相关书籍推荐"></a>计算机书单–相关书籍推荐</h1>
-        
-          <a class="article-more-a" href="/2020/04/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%96%B9%E5%90%91%E5%A5%BD%E4%B9%A6%E6%8E%A8%E8%8D%90/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%96%B9%E5%90%91%E5%A5%BD%E4%B9%A6%E6%8E%A8%E8%8D%90/">展开全文 >></a>
         </p>
       
 

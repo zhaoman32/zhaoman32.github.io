@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>SQL语言的执行顺序 | 赵二满</title>
+  <title>SQL语言积累 | 赵二满</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="(1) FROM:对FROM子句中的左表和右表执行笛卡儿积，产生虚拟表VT1;(2) ON: 对虚拟表VT1进行ON筛选，只有那些符合的行才被插入虚拟表VT2; (3) JOIN: 如果指定了&#96;OUTER JOIN&#96;(如LEFT OUTER JOIN、RIGHT OUTER JOIN)，那么保留表中未匹配的行作为外部行添加到虚拟表VT2，产生虚拟表VT3。如果FROM子句包含两个以上的表，则对上一">
+  <meta name="description" content="SQL语言积累">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SQL语言的执行顺序">
-<meta property="og:url" content="http://yoursite.com/2020/06/16/SQL%E8%AF%AD%E8%A8%80%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/index.html">
+<meta property="og:title" content="SQL语言积累">
+<meta property="og:url" content="http://yoursite.com/2020/09/25/SQL%E8%AF%AD%E8%A8%80%E7%A7%AF%E7%B4%AF/index.html">
 <meta property="og:site_name" content="赵二满">
-<meta property="og:description" content="(1) FROM:对FROM子句中的左表和右表执行笛卡儿积，产生虚拟表VT1;(2) ON: 对虚拟表VT1进行ON筛选，只有那些符合的行才被插入虚拟表VT2; (3) JOIN: 如果指定了&#96;OUTER JOIN&#96;(如LEFT OUTER JOIN、RIGHT OUTER JOIN)，那么保留表中未匹配的行作为外部行添加到虚拟表VT2，产生虚拟表VT3。如果FROM子句包含两个以上的表，则对上一">
+<meta property="og:description" content="SQL语言积累">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-06-16T03:01:36.000Z">
-<meta property="article:modified_time" content="2020-06-16T03:05:44.954Z">
+<meta property="article:published_time" content="2020-09-25T02:12:49.000Z">
+<meta property="article:modified_time" content="2020-09-25T02:14:14.803Z">
 <meta property="article:author" content="赵二满">
 <meta property="article:tag" content="赵二满">
 <meta name="twitter:card" content="summary">
@@ -163,14 +163,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-SQL语言的执行顺序" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-SQL语言积累" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      SQL语言的执行顺序
+      SQL语言积累
     </h1>
   
 
@@ -182,8 +182,8 @@
 	</span>
 
 
-<a href="/2020/06/16/SQL%E8%AF%AD%E8%A8%80%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-06-16T03:01:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-16</time>
+<a href="/2020/09/25/SQL%E8%AF%AD%E8%A8%80%E7%A7%AF%E7%B4%AF/" class="archive-article-date">
+  	<time datetime="2020-09-25T02:12:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-25</time>
 </a>
         
         
@@ -192,7 +192,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">330字</span>
+        <span class="post-count">155字</span>
       </span>
     </span>
 
@@ -213,12 +213,38 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>(1) FROM:对FROM子句中的左表<code>和右表</code>执行笛卡儿积，产生虚拟表VT1;<br>(2) ON: 对虚拟表VT1进行ON筛选，只有那些符合<code>的行才被插入虚拟表VT2;
-(3) JOIN: 如果指定了`OUTER JOIN`(如LEFT OUTER JOIN、RIGHT OUTER JOIN)，那么保留表中未匹配的行作为外部行添加到虚拟表VT2，产生虚拟表VT3。如果FROM子句包含两个以上的表，则对上一个连接生成的结果表VT3和下一个表重复执行步骤1~步骤3，直到处理完所有的表;
-(4) WHERE: 对虚拟表VT3应用WHERE过滤条件，只有符合</code>的记录才会被插入虚拟表VT4;<br>(5) GROUP By: 根据GROUP BY子句中的列，对VT4中的记录进行分组操作，产生VT5;<br>(6) CUBE|ROllUP: 对VT5进行CUBE或ROLLUP操作，产生表VT6;<br>(7) HAVING: 对虚拟表VT6应用HAVING过滤器，只有符合<code>的记录才会被插入到VT7;
-(8) SELECT: 第二次执行SELECT操作，选择指定的列，插入到虚拟表VT8中;
-(9) DISTINCT: 去除重复，产生虚拟表VT9;
-(10) ORDER BY: 将虚拟表VT9中的记录按照</code>进行排序操作，产生虚拟表VT10;<br>(11) LIMIT: 取出指定街行的记录，产生虚拟表VT11，并返回给查询用户</p>
+        <h1><span id="sql语言积累">SQL语言积累</span></h1><a id="more"></a>
+
+
+
+<p>imei设备数量查询</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">count</span>(<span class="keyword">distinct</span> imei) </span><br><span class="line"><span class="keyword">FROM</span> sec_social_engineering_app::sec_app_imei_applist_weekly$&#123;newest&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>对imei设备数计数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">count</span>(<span class="keyword">distinct</span> imei) <span class="keyword">FROM</span> sec_social_engineering_app::sec_app_imei_applist_weekly$&#123;newest&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>查找上报了淘宝的imei设备</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	date_key, </span><br><span class="line">	imei, </span><br><span class="line">	package_name, </span><br><span class="line">	app_name, </span><br><span class="line">	first_report_time, </span><br><span class="line">	last_report_time, </span><br><span class="line">	app_version </span><br><span class="line"><span class="keyword">FROM</span> sec_social_engineering_app::sec_app_applist_update_week20200525</span><br><span class="line"><span class="keyword">where</span> package_name = <span class="string">"com.taobao.taobao"</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>查找安装量top10的APP</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	package_name, </span><br><span class="line">	<span class="keyword">count</span>(<span class="keyword">DISTINCT</span> imei) <span class="keyword">AS</span> cou </span><br><span class="line"><span class="keyword">FROM</span> sec_social_engineering_app::sec_app_imei_applist_weekly$&#123;newest&#125; </span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> package_name </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> cou <span class="keyword">DESC</span> <span class="keyword">LIMIT</span> <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>时间倒序，每天的淘宝imei上报量</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	last_report_time, </span><br><span class="line">	<span class="keyword">count</span>(<span class="keyword">DISTINCT</span> imei) <span class="keyword">AS</span> cou </span><br><span class="line"><span class="keyword">FROM</span> sec_webank_app::sec_app_applist_test$&#123;newest&#125; </span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> last_report_time </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> last_report_time <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>​    逾期用户前1000</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	phone_raw, </span><br><span class="line">	idcard_raw, </span><br><span class="line">	imei_md5, </span><br><span class="line">	imei_raw, </span><br><span class="line">	app_date, </span><br><span class="line">	target, </span><br><span class="line">	<span class="keyword">category</span> </span><br><span class="line"><span class="keyword">FROM</span> sec_social_engineering_app::sec_app_isee_sample_lib_all$&#123;newest&#125; </span><br><span class="line"><span class="keyword">WHERE</span> imei_md5 != <span class="string">""</span> </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> app_date <span class="keyword">DESC</span> <span class="keyword">LIMIT</span> <span class="number">1000</span>;</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -303,7 +329,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/16/SQL%E8%AF%AD%E8%A8%80%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/25/SQL%E8%AF%AD%E8%A8%80%E7%A7%AF%E7%B4%AF/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -317,9 +343,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/09/25/SQL%E8%AF%AD%E8%A8%80%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          SQL语言的执行顺序
+        
+      </div>
+    </a>
   
-    <a href="/2020/06/06/SQL%E8%AF%AD%E5%8F%A5%E7%A7%AF%E7%B4%AF/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">SQL语句积累</div>
+  
+    <a href="/2020/05/18/Hadoop%E4%B8%8ESpark%E7%AD%89%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hadoop与Spark等大数据框架介绍</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -346,7 +381,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text">SQL语言积累</span></a></li></ol>
                     </div>
                 </span>
             </div>
